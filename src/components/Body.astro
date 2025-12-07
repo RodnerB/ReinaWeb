@@ -1,0 +1,411 @@
+---
+import fotoAbout from '../assets/fotoabout.png';
+import HeartIcon from '../assets/heart.astro';
+import Services from './services.astro';
+import Church from '../assets/church.astro';
+import Restaurant from '../assets/restaurant.astro';
+import Speaker from '../assets/speaker.astro';
+import Images from './images.astro';
+
+import Reina1 from '../assets/reina1.png';
+import Reina2 from '../assets/reina2.png';
+import Reina3 from '../assets/reina3.png';
+import Reina4 from '../assets/reina4.png';
+import Reina5 from '../assets/reina5.png';
+import Reina6 from '../assets/reina6.png';
+import Reina7 from '../assets/reina7.png';
+import Reina8 from '../assets/reina8.png';
+---
+<main class="container">
+    <section class="presentation">
+        <div class="text-content">
+            <h1>Welcome to Reinaliz</h1>
+            <p>Vocalist | Pianist. Creating unforgettable moments with music.</p>
+        </div>
+        <a href="#get-started">Book your event</a>
+    </section>
+    <section class="about" id="about">
+        <div class="about-content">
+            <img src={fotoAbout.src} alt="About Reinaliz">
+            <div class="text-content">
+                <h2>My Musical Journey</h2>
+                <p>With a lifelong passion for music, I specialize in creating the perfect atmosphere for your special occasions. From the soulful strum of my guitar to the delicate notes of the piano, I bring a unique and heartfelt performance to every event. My journey has been one of melodies and memories, and I'm dedicated to making yours just as unforgettable.</p>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="services section">
+        <h3>Services</h3>
+        <div class="section-list">
+            <!-- Service items will go here -->
+            <Services 
+                title="Wedding" 
+                description="Elegant and romantic music to make your special day truly memorable." 
+                Icon={HeartIcon}/>
+            <Services 
+                title="Masses" 
+                description="Soulful and reverent performances for spiritual gatherings and ceremonies." 
+                Icon={Church}/>
+            <Services 
+                title="Political Events" 
+                description="Inspiring and professional music suitable for rallies and official functions." 
+                Icon={Speaker}/>
+            <Services 
+                title="Restaurants" 
+                description="Creating a warm and inviting ambiance for an exceptional dining experience." 
+                Icon={Restaurant}/>
+        </div>
+                
+    </section>
+    <section id="galery" class="galery section">
+        <h3>Galery</h3>
+        <div class="section-list">
+            <Images imageSrc={Reina1.src}/>
+            <Images imageSrc={Reina2.src}/>
+            <Images imageSrc={Reina3.src}/>
+            <Images imageSrc={Reina4.src}/>
+            <Images imageSrc={Reina5.src}/>
+            <Images imageSrc={Reina6.src}/>
+            <Images imageSrc={Reina7.src}/>
+            <Images imageSrc={Reina8.src}/>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <h3>Let's Make Music Together</h3>
+        <p class="contact-subtitle">Have an event in mind? Fill out the form below, and I'll get back to you to discuss how we can create the perfect musical experience.</p>
+        
+        <form class="contact-form">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" required />
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" required />
+            </div>
+            <div class="form-group">
+                <label>Event Type</label>
+                <select required>
+                    <option value="">Wedding</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="mass">Mass</option>
+                    <option value="political">Political Event</option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Event Date</label>
+                <input type="date" required />
+            </div>
+            <div class="form-group full-width">
+                <label>Message</label>
+                <textarea rows="5" required></textarea>
+            </div>
+            <button type="submit">Send Inquiry</button>
+        </form>
+    </section>
+</main>
+
+<style>
+    main{
+        height: 100%;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 80px;
+    }
+    .presentation {
+        border-radius: 2em;
+        text-align: center;
+        width: 100%;
+        min-height: 540px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-image: url(../assets/fotobg.png);
+        color: var(--color-bg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 0px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        
+
+        
+        > .text-content {
+            margin: 60px 0 30px;
+            text-shadow: 0px 0px 5px rgb(0, 0, 0.8);
+            position: relative;
+            z-index: 2;
+            
+            h1{
+                margin: 0 0 15px 0;
+                font-size: clamp(2rem, 5vw, 3.5rem);
+                font-weight: 700;
+                letter-spacing: -0.5px;
+            }
+            p{
+                font-size: clamp(1rem, 2.5vw, 1.25rem);
+                margin: 0;
+                font-weight: 400;
+                max-width: 600px;
+            }
+        }
+        
+        > a {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            padding: 16px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            width: max-content;
+            position: relative;
+            z-index: 2;
+            
+            &:hover {
+                background-color: var(--color-primary-light);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            }
+            
+            &:active {
+                transform: translateY(0);
+            }
+        }      
+    }
+
+    .about {
+        max-height: 500px;
+        height: 100%;
+        width: 100%;
+        padding: 40px 0;
+
+        > .about-content{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            
+            img{
+                border-radius: 2rem;
+                height: 350px;
+                width: auto;
+                object-fit: cover;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                
+                &:hover {
+                    transform: scale(1.02);
+                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+                }
+            }
+
+            > .text-content{
+                flex: 0 1 60%;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                
+                h2{
+                    font-size: clamp(2rem, 4vw, 2.5rem);
+                    margin: 0;
+                    color: var(--color-primary);
+                    font-weight: 700;
+                    letter-spacing: -0.5px;
+                }
+                p{
+                    font-size: clamp(1rem, 2vw, 1.15rem);
+                    line-height: 1.8;
+                    color: var(--color-text-alt);
+                    margin: 0;
+                }
+            }
+        }
+
+        
+        
+    }
+
+    .services{
+        background-color: var(--color-bg-alt);
+        
+    }
+    .section{
+        width: 100%;
+        border-radius: 2em;
+        padding: 40px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        h3{
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--color-primary);
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section-list{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            justify-items: center;
+            gap: 20px;
+            
+        }
+
+    }
+
+    .contact {
+        width: 100%;
+        background-color: var(--color-bg-alt);
+        padding: 60px 20px;
+        text-align: center;
+
+        h3 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--color-primary);
+            margin: 0 0 20px 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-subtitle {
+            font-size: 1rem;
+            color: var(--color-text-alt);
+            max-width: 600px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+
+                label {
+                    font-size: 0.95rem;
+                    color: var(--color-text);
+                    margin-bottom: 8px;
+                    font-weight: 500;
+                }
+
+                input, select, textarea {
+                    width: 100%;
+                    padding: 12px 16px;
+                    border: 1px solid #e0e0e0;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-family: inherit;
+                    color: var(--color-text);
+                    background-color: var(--color-bg);
+                    transition: border-color 0.3s;
+                    box-sizing: border-box;
+
+                    &:focus {
+                        outline: none;
+                        border-color: var(--color-primary);
+                    }
+                }
+
+                textarea {
+                    resize: vertical;
+                    min-height: 100px;
+                }
+
+                select {
+                    cursor: pointer;
+                    appearance: none;
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+                    background-repeat: no-repeat;
+                    background-position: right 16px center;
+                    padding-right: 40px;
+                }
+
+                &.full-width {
+                    grid-column: 1 / -1;
+                }
+            }
+
+            button {
+                grid-column: 1 / -1;
+                padding: 14px 40px;
+                background-color: var(--color-primary);
+                color: var(--color-bg);
+                border: none;
+                border-radius: 30px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                margin-top: 10px;
+                width: max-content;
+                justify-self: center;
+
+                &:hover {
+                    background-color: var(--color-primary-light);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            padding: 40px 20px;
+
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    </style>
+    <!--
+    
+    .section{
+        width: 100%;
+        border-radius: 2em;
+        padding: 40px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        h3{
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--color-primary);
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section-list{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            justify-items: center;
+            
+        }
+
+    }
+        
+    -->

@@ -1,3 +1,6 @@
+---
+import Header from '../components/Header.astro';
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,15 +11,53 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
+
+		<Header/>
 		<slot />
 	</body>
 </html>
 
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+	:root {
+	--color-primary:      #eb478b;   /* rosa fuerte */
+	--color-primary-light:#e287af;   /* rosa suave */
+	--color-bg:           #fefdfb;   /* fondo claro */
+	--color-bg-alt:       #ffc8dd;   /* acento claro */
+	--color-text:         #1b0e13;   /* texto oscuro */
+	--color-text-alt:     #4a2a36;   /* texto secundario */
+	--color-text-light:     #676766; 
+
+}
+
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		font-family: "Plus Jakarta Sans", sans-serif;
+		font-weight: 500;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: var(--color-bg);
+		color: var(--color-text);
+	}
+	:global(a){
+		cursor: pointer;
+		text-decoration: none;
+	}
+	:global(img){
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+	:global(h1, h2, h3, h4, h5, h6) {
+		font-family: 'Playfair Display', serif;
+	}
+	:global(.container) {
+		max-width: 1100px;
+		width: 100%;
+		padding: 0 20px;
 	}
 </style>
