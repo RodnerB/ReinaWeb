@@ -22,7 +22,7 @@ import Reina8 from '../assets/reina8.png';
             <h1>Welcome to Reinaliz</h1>
             <p>Vocalist | Pianist. Creating unforgettable moments with music.</p>
         </div>
-        <a href="#get-started">Book your event</a>
+        <a href="#contact">Book your event</a>
     </section>
     <section class="about" id="about">
         <div class="about-content">
@@ -270,6 +270,8 @@ import Reina8 from '../assets/reina8.png';
         background-color: var(--color-bg-alt);
         padding: 60px 20px;
         text-align: center;
+        border-radius: 2rem;
+        box-sizing: border-box;
 
         h3 {
             font-size: clamp(2rem, 4vw, 2.5rem);
@@ -315,6 +317,7 @@ import Reina8 from '../assets/reina8.png';
                     font-family: inherit;
                     color: var(--color-text);
                     background-color: var(--color-bg);
+                    border-color: var(--color-primary-light);
                     transition: border-color 0.3s;
                     box-sizing: border-box;
 
@@ -370,42 +373,42 @@ import Reina8 from '../assets/reina8.png';
             }
         }
 
-        @media (max-width: 768px) {
-            padding: 40px 20px;
+    }
 
-            .contact-form {
-                grid-template-columns: 1fr;
-            }
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+        .about > .about-content {
+            flex-direction: column;
+            max-height: none;
+        }
+
+        .about > .about-content img {
+            width: 100%;
+            height: auto;
+        }
+
+        .about > .about-content > .text-content {
+            flex: 1;
+        }
+
+        .section .section-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .contact-form {
+            grid-template-columns: 1fr !important;
         }
     }
 
-    </style>
-    <!--
+    @media (max-width: 480px) {
+        main {
+            gap: 50px;
+        }
+
+        .section .section-list {
+            grid-template-columns: 1fr;
+        }
+    }
+
+</style>
     
-    .section{
-        width: 100%;
-        border-radius: 2em;
-        padding: 40px 0;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-
-        h3{
-            text-align: center;
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            color: var(--color-primary);
-            margin: 0;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .section-list{
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            justify-items: center;
-            
-        }
-
-    }
-        
-    -->
