@@ -7,6 +7,8 @@ import Restaurant from '../assets/restaurant.astro';
 import Speaker from '../assets/speaker.astro';
 import Images from './images.astro';
 
+import ReinaLogo from '../assets/reinalizlogo.astro';
+
 import Reina1 from '../assets/reina1.png';
 import Reina2 from '../assets/reina2.png';
 import Reina3 from '../assets/reina3.png';
@@ -19,7 +21,7 @@ import Reina8 from '../assets/reina8.png';
 <main class="container">
     <section class="presentation">
         <div class="text-content">
-            <h1>Welcome to Reinaliz</h1>
+            <ReinaLogo class="logo-svg"/>
             <p>Vocalist | Pianist. Creating unforgettable moments with music.</p>
         </div>
         <a href="#contact">Book your event</a>
@@ -141,6 +143,17 @@ import Reina8 from '../assets/reina8.png';
             text-shadow: 0px 0px 5px rgb(0, 0, 0.8);
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            
+            .logo-svg {
+                width: clamp(300px, 40vw, 400px);
+                height: auto;
+                color: white;
+                filter: drop-shadow(0px 2px 8px rgb(8, 0, 0));
+            }
             
             h1{
                 margin: 0 0 15px 0;
