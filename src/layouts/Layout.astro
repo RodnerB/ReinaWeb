@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
@@ -31,14 +31,23 @@ import Footer from '../components/Footer.astro';
 
 }
 
+	:global(*) {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
 	html {
 		height: 100%;
+		width: 100vw;
+		max-width: 100%;
+		overflow-x: hidden;
 	}
 	
 	body {
-		margin: 0;
-		width: 100%;
-		min-height: 100%;
+		width: 100vw;
+		max-width: 100%;
+		min-height: 100vh;
 		font-family: "Plus Jakarta Sans", sans-serif;
 		font-weight: 500;
 		display: flex;
@@ -46,6 +55,8 @@ import Footer from '../components/Footer.astro';
 		align-items: center;
 		background-color: var(--color-bg);
 		color: var(--color-text);
+		overflow-x: hidden;
+		position: relative;
 	}
 	
 	body > :global(*:nth-child(2)) {

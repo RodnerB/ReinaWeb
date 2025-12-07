@@ -3,46 +3,162 @@ import Microphone from '../assets/microphone.astro';
 ---
 
 <header class="header container">
-    <a href="#">
-    <Microphone class="logo"/>
+    <a href="#" class="logo-link">
+        <Microphone class="logo"/>
     </a>
-    <ul class="navlist">
-        <li><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#galery">Galery</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    
+    <nav class="navbar">
+        <ul class="navlist">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#galery">Galery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 </header>
 
 <style>
-    .header{
+    .header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         border-bottom: 1px solid var(--color-primary-light);
+        padding: 20px ;
+        position: relative;
+    }
 
-        > a{
-            display: flex;
-            align-items: center;
-            color: var(--color-primary);
-        }
+    .logo-link {
+        display: flex;
+        align-items: center;
+        color: var(--color-primary);
+        z-index: 100;
+    }
 
-    .navlist{
+    /* Ocultar checkbox */
+    #menu-toggle {
+        display: none;
+    }
+
+    /* Icono del menú hamburguesa */
+    .menu-icon {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 100;
+    }
+
+    .menu-icon span {
+        width: 28px;
+        height: 3px;
+        background-color: var(--color-text);
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .navbar {
+        display: flex;
+    }
+
+    .navlist {
         list-style: none;
         display: flex;
         gap: 10px;
-        
+        margin: 0;
+        padding: 0;
         font-weight: 600;
-        > li > a {
-            color: var(--color-text);
-            transition: color 0.3s;
-            padding: 5px 10px;
-            &:hover {
-                color: var(--color-primary);
-            }
+    }
+
+    .navlist > li > a {
+        color: var(--color-text);
+        transition: color 0.3s;
+        padding: 5px 10px;
+        text-decoration: none;
+    }
+
+    .navlist > li > a:hover {
+        color: var(--color-primary);
+    }
+
+    /* Estilos responsive para móviles */
+    @media (max-width: 768px) {
+        .header {
+            padding: 30px 20px;
+        }
+
+        .menu-icon {
+            display: flex;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--color-background, #fff);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 99;
+        }
+
+        .navlist {
+            flex-direction: column;
+            gap: 0;
+            width: 100%;
+        }
+
+        .navlist > li {
+            width: 100%;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .navlist > li > a {
+            display: block;
+            padding: 15px 20px;
+            width: 100%;
+        }
+
+        .navlist > li > a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Mostrar menú cuando checkbox está marcado */
+        #menu-toggle:checked ~ .navbar {
+            display: block;
+        }
+
+        /* Animación del icono cuando está activo */
+        #menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        #menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
         }
     }
 
+    /* Ajustes para tablets */
+    @media (max-width: 1024px) and (min-width: 769px) {
+        .navlist {
+            gap: 5px;
+        }
+
+        .navlist > li > a {
+            padding: 5px 8px;
+            font-size: 0.95rem;
+        }
     }
 </style>
